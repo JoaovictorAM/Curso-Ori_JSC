@@ -1,1 +1,1 @@
-# CursoJSCompletoOrigamid
+# Curso JavaScript Completo ES6
