@@ -16,6 +16,8 @@
         cursor: pointer;
         margin: 10px;
         align-items: center;
+        position: relative;
+        z-index: 201;
     }
     .js [data-menu="button"]::before{
         content: '';
@@ -25,21 +27,26 @@
         background: white;
         box-shadow: 0 4px white, 0 -4px white;
         margin-right: 4px;
-        position: relative;
-        z-index: 300;
+        transition: transform .3s;
     }
-    
+    .js [data-menu="button"].active::before{
+        transform: rotate(90deg);
+    }
     .js [data-menu="list"]{
-        display: block;
+        display: none;
         position: absolute;
         background: #fb5;
-        max-width: 160px;
+        width: 165px;
         z-index: 200;
         padding: 60px 0 20px 0;
         top: 0;
         box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, .2);
     }
-    .js .dropdownMenu {
+    .js [data-menu="list"].active{
+        display: block;
+        animation: show-right .3s forwards;
+    }
+    .js .dropdownMenu{
         position: static;
         border: none;
     }
