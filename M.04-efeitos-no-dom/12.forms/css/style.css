@@ -18,7 +18,7 @@ input, textarea{
   margin-bottom: .5rem;
 }
 textarea{
-  max-height: 150px;
+  max-height: 300px;
 }
 .invalido{
   border-color: red;
