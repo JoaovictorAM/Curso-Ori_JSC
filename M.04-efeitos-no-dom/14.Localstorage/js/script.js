@@ -38,8 +38,24 @@ function handleChange(event){
 	const valor =event.target.value;
 
 	handleStyle[name](valor);
+	saveValues(name, valor);
 	showCss();
 }
+
+function saveValues(name, value){
+	localStorage[name] = value;
+}
+
+function setValues(){
+	const properties = Object.keys(localStorage);
+	properties.forEach(propertie=>{
+		handleStyle[propertie](localStorage[propertie]);
+		controles.elements[propertie].value = localStorage[propertie];
+	});
+	showCss();
+}
+
+setValues();
 
 function showCss(){
 	csstext.innerHTML = '<span>'+btn.style.cssText.split('; ').join(';</span><span>');
