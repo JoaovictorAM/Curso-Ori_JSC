@@ -1,8 +1,14 @@
-const doc = fetch('./img.jpg');
+const doc = fetch('https://viacep.com.br/ws/01001000/json/');
 
-doc.then(r => r.blob())
+doc.then(r =>{ 
+	const r2 = r.clone();
+	r.text().then((text)=>{
+		console.log(text)
+	})
+	r2.json().then((json)=>{
+		console.log(json);
+	})
+})
 .then(body=>{
-	const blobUrl = URL.createObjectURL(body);
-	const imgDom = document.querySelector('img');
-	imgDom.src = blobUrl;
+	console.log(body);
 });
