@@ -1,7 +1,8 @@
-const doc = fetch('https://viacep.com.br/ws/01001000/json/');
-
-doc.then(r => r.json())
+const doc = fetch('./style.css');
+const styleElement = document.createElement('style');
+doc.then(r => r.text())
 .then(body=>{
+	styleElement.innerHTML = body;
 	const conteudo = document.querySelector('.conteudo');
-	conteudo.innerText = body.logradouro;
+	conteudo.appendChild(styleElement);
 });
